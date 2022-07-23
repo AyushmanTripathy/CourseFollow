@@ -11,13 +11,14 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 const URL =
-  "mongodb+srv://suprada:suprada@courseappdb.fdzyr.mongodb.net/?directConnection=true";
+  "mongodb+srv://sup:sup123@courseappdb.fdzyr.mongodb.net/?retryWrites=true&w=majority";
 
 const PORT = 5000;
 
 mongoose
   .connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
+    console.log("starting express server");
     app.listen(PORT, () => {
       console.log(`server running on ${PORT}`);
     });
